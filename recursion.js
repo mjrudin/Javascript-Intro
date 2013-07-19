@@ -41,5 +41,21 @@ var fibonacci = function(num) {
     return fib.concat([fib.slice(-2)[0] + fib.slice(-2)[1]])
   }
 }
-console.log(fibonacci(8));
+// console.log(fibonacci(8));
+
+var binarySearch = function(array, target) {
+  midpoint = Math.floor(array.length/2);
+  if (target == array[midpoint]) {
+    return midpoint;
+  } else if (array.length == 0) {
+    return null;
+  } else if (target < array[midpoint]) {
+    return binarySearch(array.slice(0, midpoint), target);
+  } else {
+    return midpoint + binarySearch(array.slice(midpoint, array.length), target);
+  }
+}
+
+//console.log(binarySearch([1,2,3,4,5], 5))
+
 
